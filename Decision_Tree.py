@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
-
+from sklearn.metrics import classification_report
 from sklearn.tree import plot_tree
 
 import matplotlib.pyplot as plt
@@ -55,4 +55,11 @@ True Negative (TN): Modell sagt „Negativ“ und es ist wirklich Negativ
 
 ConfusionMatrixDisplay.from_estimator(clf, X_test, y_test)
 plt.title("Konfusionsmatrix")
+
+
+# Metriken berechnen
+report = classification_report(y_test, y_pred)
+
+# Ausgabe
+print(report)
 plt.show()
