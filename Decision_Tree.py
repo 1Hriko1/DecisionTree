@@ -28,3 +28,31 @@ y_pred = clf.predict(X_test)
 # 6. Genauigkeit berechnen
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Genauigkeit: {accuracy:.2%}")
+
+
+# Entscheidungsbaum visualisieren
+plt.figure(figsize=(20,10))
+plot_tree(
+    clf,
+    filled=True,
+    feature_names=X.columns.tolist(),
+    class_names=clf.classes_.tolist()
+)
+plt.show()
+
+
+# Konfusionsmatrix anzeigen
+
+'''
+True Positive (TP): Modell sagt „Positiv“ und es ist wirklich Positiv
+
+False Negative (FN): Modell sagt „Negativ“, aber es ist tatsächlich Positiv (Fehler)
+
+False Positive (FP): Modell sagt „Positiv“, aber es ist tatsächlich Negativ (Fehler)
+
+True Negative (TN): Modell sagt „Negativ“ und es ist wirklich Negativ
+'''
+
+ConfusionMatrixDisplay.from_estimator(clf, X_test, y_test)
+plt.title("Konfusionsmatrix")
+plt.show()
