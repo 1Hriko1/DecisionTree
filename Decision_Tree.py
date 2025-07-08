@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
+
 from sklearn.tree import plot_tree
 
 import matplotlib.pyplot as plt
@@ -42,7 +43,6 @@ plt.show()
 
 
 # Konfusionsmatrix anzeigen
-
 '''
 True Positive (TP): Modell sagt „Positiv“ und es ist wirklich Positiv
 
